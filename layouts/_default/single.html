@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{ if eq site.Params.headerStyle "image" }}
+<header class="post-hero">
+  <div class="post-hero-bg" {{ if .Params.image }}style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ .Params.image | relURL }}');"{{ else }}style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/hero-bg.jpg');"{{ end }}></div>
+  <div class="container post-hero-inner">
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      &bull; <span>{{ .ReadingTime }} min read</span>
+      {{ if .Params.tags }}
+        &bull; 
+        <span class="post-tags">
+          {{ range $i, $tag := .Params.tags }}{{ if $i }}, {{ end }}<span class="tag-link">{{ $tag }}</span>{{ end }}
+        </span>
+      {{ end }}
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+  </div>
+</header>
+{{ else }}
+<!-- Image-Free Minimalist Post Header (Zero Photos Needed) -->
+<header class="post-header-minimal {{ site.Params.minimalHeaderStyle }}">
+  <div class="container">
+    <div class="post-meta-minimal">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      &bull; <span>{{ .ReadingTime }} min read</span>
+      {{ if .Params.tags }}
+        &bull; 
+        <span class="post-tags">
+          {{ range $i, $tag := .Params.tags }}{{ if $i }}, {{ end }}<span class="tag-link">{{ $tag }}</span>{{ end }}
+        </span>
+      {{ end }}
+    </div>
+    <h1 class="post-title-minimal">{{ .Title }}</h1>
+  </div>
+</header>
+{{ end }}
+
+<div class="container post-body-container">
+  <article class="post-content">
+    {{ .Content }}
+  </article>
+</div>
+{{ end }}

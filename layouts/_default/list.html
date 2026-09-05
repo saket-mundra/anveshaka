@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{ if eq site.Params.headerStyle "image" }}
+<header class="blog-header">
+  <div class="container blog-header-inner">
+    <h1>Blog</h1>
+    <p>{{ site.Params.Description }}</p>
+  </div>
+</header>
+{{ else }}
+<!-- Image-Free Minimalist Typographic Header -->
+<header class="blog-header-minimal {{ site.Params.minimalHeaderStyle }}">
+  <div class="container">
+    <h1>Blog</h1>
+    <p>{{ site.Params.Description }}</p>
+  </div>
+</header>
+{{ end }}
+
+<div class="container">
+  <!-- Option 1: Flowy Essay Stream Layout (Zero Images Required) -->
+  <div class="essay-stream">
+    {{ range .Paginator.Pages }}
+    <article class="essay-item">
+      <div class="essay-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        &bull; <span>{{ .ReadingTime }} min read</span>
+        {{ if .Params.tags }}
+          &bull; 
+          <span class="essay-tags">
+            {{ range $i, $tag := .Params.tags }}{{ if $i }}, {{ end }}<span class="tag-badge">{{ $tag }}</span>{{ end }}
+          </span>
+        {{ end }}
+      </div>
+      <h2 class="essay-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      <p class="essay-excerpt">
+        {{ if .Description }}
+          {{ .Description }}
+        {{ else }}
+          {{ .Summary | truncate 240 }}
+        {{ end }}
+      </p>
+      <a href="{{ .Permalink }}" class="essay-read-link">Read Essay &rarr;</a>
+    </article>
+    {{ else }}
+      <p style="text-align: center; color: var(--text-muted); margin: 4rem 0;">No posts found yet.</p>
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}

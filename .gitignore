@@ -1,0 +1,8 @@
+# Hugo Default Output Directories
+public/
+resources/_gen/
+.hugo_build.lock
+
+# OS Files
+.DS_Store
+Thumbs.db

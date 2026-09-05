@@ -1,0 +1,26 @@
+baseURL = '/'
+locale = 'en-us'
+defaultContentLanguage = 'en'
+title = 'Anveshaka'
+paginate = 6 # Dynamic pagination: displays 6 posts per page with automatic 1, 2, 3... page navigation
+
+[params]
+  description = "Inner seeking, clarity, and quiet craftsmanship."
+  author = "Saket Mundra"
+  email = "saket@anveshaka.com"
+  linkedin = "https://ca.linkedin.com/in/saketmundra"
+  enableBlog = false # Set to false to hide Blog from header and launch Homepage only
+  headerStyle = "minimal" # Options: "minimal" (Image-Free Professional Layout) | "image" (Hero Photo Layout)
+  minimalHeaderStyle = "" # Options: "" (Soft Sage Cream Band) | "dark-band" (Bold Dark Sage Hero)
+  navStyle = "glass-nav"  # Options: "" (Clean Top Links) | "glass-nav" (Frosted Dark Glass Floating Pill)
+  colorTheme = "sage"     # Options: "sage" (Default Sage Teal) | "gold" (Warm Champagne Gold) | "slate" (Midnight Slate & Ice)
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 2

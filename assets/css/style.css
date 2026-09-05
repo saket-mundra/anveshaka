@@ -1,0 +1,708 @@
+/* Import Google Fonts for Visual Typography Options */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Inter:wght@300;400;500;600;700&family=Pacifico&display=swap');
+
+:root {
+  /* Minimalist Design System Variables */
+  --primary-color: #78ae9c;       /* Sage Teal brand color */
+  --primary-hover: #5d8e7e;       /* Deeper Teal for hover/contrast */
+  --bg-color: #f7faf9;            /* Soft slate-white warm bg */
+  --card-bg: #ffffff;             /* Background for cards/containers */
+  --text-main: #2d3732;           /* Charcoal with green tones for readability */
+  --text-muted: #5f7067;          /* Muted body text */
+  --heading-color: #1b2621;       /* Deep green-black for high contrast headings */
+  --border-color: #e2e8f0;
+  
+  /* Consistent Typography Hierarchy Across All Pages */
+  --font-headings: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-signature: 'Pacifico', cursive, sans-serif;
+  
+  --max-width: 1200px;
+  --header-height: 90px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Automatic Dark Mode scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #111815;          /* Deep charcoal-green bg */
+    --card-bg: #1a231f;           /* Card / inner layout background */
+    --text-main: #e2e8f0;          /* Soft grey body text */
+    --text-muted: #94a3b8;         /* Muted grey for metadata */
+    --heading-color: #ffffff;      /* White headings */
+    --primary-color: #9cd3be;      /* Softened light teal */
+    --primary-hover: #bce6d7;
+    --border-color: #2b3531;
+  }
+}
+
+/* Global Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Typography elements - Consistent Playfair Display headings across all pages */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  color: var(--heading-color);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+p {
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Layout Containers - Symmetrical 1200px Max-Width Across All Pages */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Header Navigation - Positioned Absolute so it scrolls off-screen during reading */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background: transparent;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: flex-end; /* Top-Right alignment */
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+nav a {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--transition);
+}
+
+nav a:hover, nav li.active a {
+  color: var(--primary-color) !important;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 4px;
+}
+
+/* Alternate Navigation Pill Style Option (Frosted Dark Glass Pill) */
+nav.glass-nav ul {
+  background: rgba(23, 43, 36, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.6rem 2.2rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+nav.glass-nav a {
+  text-shadow: none;
+}
+
+/* Homepage Hero Section - Placement & Font Sizes matching live anveshaka.com */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)), url('/images/hero-bg.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  color: #ffffff;
+  width: 100%;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 900px;
+  padding-top: 172px; /* Exact top offset from live site */
+  padding-bottom: 60px;
+}
+
+.hero h1 {
+  font-size: 6rem;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: normal;
+  font-family: var(--font-headings);
+}
+
+.hero h3 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-headings);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  font-family: var(--font-headings);
+  font-style: normal; /* Regular Playfair Display serif matching live site */
+  font-weight: 400;
+  line-height: 1.65;
+  color: #ffffff;
+  border-left: none;
+  padding-left: 0;
+  margin-top: auto;
+  margin-bottom: 0;
+  max-width: 850px;
+}
+
+/* Columns Section - Symmetrical Left & Right Grid (Exact Top Baseline Alignment) */
+.sections-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin: 7rem auto;
+  width: 100%;
+}
+
+.row-section {
+  display: grid;
+  grid-template-columns: 1.2fr 2.8fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: var(--heading-color);
+  position: sticky;
+  top: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: var(--font-headings);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.script-paragraph {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--text-main);
+  line-height: 1.85;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.script-paragraph:first-child {
+  margin-top: 0;
+  padding-top: 2px; /* Fine-tuned alignment matching title top baseline */
+}
+
+.script-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Image-Free Professional Header Layouts (Matched to Dark Sage Footer #172b24 & Homepage Fonts) */
+.blog-header-minimal, .post-header-minimal {
+  padding: calc(var(--header-height) + 50px) 0 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 4rem;
+  width: 100%;
+  background-color: #172b24; /* Dark Sage matching the footer card palette #172b24 */
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-header-minimal h1, .post-header-minimal h1.post-title-minimal {
+  font-size: 3.75rem;
+  color: #ffffff;
+  font-family: var(--font-headings); /* Playfair Display serif */
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.blog-header-minimal p {
+  font-size: 1.25rem;
+  font-family: var(--font-headings); /* Playfair Display serif */
+  font-style: normal; /* Regular Playfair Display serif (NOT italicized) matching homepage! */
+  font-weight: 400;
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.post-meta-minimal {
+  color: var(--primary-color); /* Sage Teal #78ae9c */
+  font-family: var(--font-body); /* Inter / Open Sans */
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* Blog List Header & Single Post Hero - Shared Full-Bleed Aesthetics */
+.blog-header, .post-hero {
+  position: relative;
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  color: #ffffff;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: var(--header-height) 0 3.5rem;
+  margin-bottom: 5rem;
+}
+
+.blog-header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/images/blog-header-bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.post-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.blog-header-inner, .post-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.blog-header h1, .post-hero h1.post-title {
+  font-size: 3.75rem;
+  color: #ffffff;
+  font-family: var(--font-headings);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.blog-header p {
+  font-size: 1.25rem;
+  font-family: var(--font-headings);
+  font-style: italic;
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.post-meta {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.post-meta a, .post-meta .tag-link {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Tag Bar Filter */
+.tag-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.tag-filter-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+.tag-pill {
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.tag-pill:hover, .tag-pill.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+/* Flowy Essay Stream Layout (No Images Required - Symmetrical 1200px Alignment) */
+.essay-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto 6rem;
+}
+
+.essay-item {
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.essay-item:last-child {
+  border-bottom: none;
+}
+
+.essay-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.75rem;
+}
+
+.tag-badge {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.essay-title {
+  font-size: 2.5rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.essay-title a {
+  color: var(--heading-color);
+}
+
+.essay-title a:hover {
+  color: var(--primary-color);
+}
+
+.essay-excerpt {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.essay-read-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.essay-read-link:hover {
+  color: var(--primary-hover);
+}
+
+/* Post Detail Reading Body Layout - Symmetrical Full Container Alignment */
+.post-body-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto 7rem;
+  padding: 0 2rem;
+}
+
+.post-content {
+  width: 100%;
+  max-width: var(--max-width); /* Spans full container width symmetrically */
+  font-size: 1.25rem;
+  line-height: 1.95;
+  color: var(--text-main);
+}
+
+.post-content p {
+  margin-bottom: 2rem;
+}
+
+.post-content h2, .post-content h3 {
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--primary-color);
+  padding-left: 2rem;
+  margin: 3rem 0;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Floating Card Footer - Dark Sage Palette matching anveshaka.com */
+footer {
+  background-color: #172b24;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 4rem 2rem 3rem;
+  margin: 5rem 2rem 2rem 2rem;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+}
+
+/* Scroll to top button - Identical aesthetic to LinkedIn icon */
+.scroll-to-top {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  padding: 0;
+  color: #ffffff;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-to-top:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(120, 174, 156, 0.4);
+}
+
+.scroll-to-top svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Social Icon (LinkedIn) - Official LinkedIn Blue (#0a66c2) from anveshaka.com */
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon.linkedin {
+  background-color: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+  color: #ffffff !important;
+}
+
+.social-icon.linkedin:hover {
+  background-color: #084e96 !important;
+  border-color: #084e96 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(10, 102, 194, 0.4);
+}
+
+.social-icon svg {
+  fill: #ffffff;
+  width: 20px;
+  height: 20px;
+}
+
+.footer-email {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  transition: var(--transition);
+}
+
+.footer-email:hover {
+  color: var(--primary-color);
+}
+
+/* Alternate Color Palette Themes */
+body.theme-gold {
+  --primary-color: #c5a059;       /* Option 2: Warm Champagne Gold */
+  --primary-hover: #a3813c;
+}
+body.theme-gold footer {
+  background-color: #111827;       /* Midnight Dark Slate Card */
+}
+
+body.theme-slate {
+  --primary-color: #38bdf8;       /* Option 3: Ice Blue / Teal */
+  --primary-hover: #0284c7;
+}
+body.theme-slate footer {
+  background-color: #0f172a;       /* Deep Ocean Slate Card */
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 991px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .hero h1 {
+    font-size: 4rem;
+  }
+  
+  .blog-header h1, .post-hero h1.post-title {
+    font-size: 3rem;
+  }
+  
+  .essay-title {
+    font-size: 2rem;
+  }
+  
+  .row-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .section-title {
+    position: static;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .hero {
+    min-height: 700px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .blog-header, .post-hero {
+    min-height: 45vh;
+  }
+  
+  .blog-header h1, .post-hero h1.post-title {
+    font-size: 2.4rem;
+  }
+  
+  .post-body-container {
+    padding: 0 1.25rem;
+  }
+  
+  footer {
+    margin: 3rem 1rem 1rem 1rem;
+    padding: 3rem 1.5rem 2rem;
+    border-radius: 1.25rem;
+  }
+}
