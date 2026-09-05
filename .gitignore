@@ -3,6 +3,10 @@ public/
 resources/_gen/
 .hugo_build.lock
 
+# Unnecessary Legacy & Temporary Files
+unnecessary_files/
+scratch/
+
 # OS Files
 .DS_Store
 Thumbs.db
