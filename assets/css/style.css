@@ -151,15 +151,15 @@ nav.glass-nav a {
   text-shadow: none;
 }
 
-/* Homepage Hero Section - Placement & Font Sizes matching live anveshaka.com */
+/* Homepage Hero Section - Placement & Responsive Scaling matching live anveshaka.com */
 .hero {
   position: relative;
+  min-height: 850px;
   height: 100vh;
-  min-height: 900px;
   display: flex;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)), url('/images/hero-bg.jpg');
-  background-position: 50% 50%;
+  background-position: center 30%;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -173,9 +173,9 @@ nav.glass-nav a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 900px;
-  padding-top: 172px; /* Exact top offset from live site */
-  padding-bottom: 60px;
+  min-height: 75vh;
+  padding-top: 150px;
+  padding-bottom: 4rem;
 }
 
 .hero h1 {
@@ -201,7 +201,7 @@ nav.glass-nav a {
 .hero p {
   font-size: 1.5rem;
   font-family: var(--font-headings);
-  font-style: normal; /* Regular Playfair Display serif matching live site */
+  font-style: normal;
   font-weight: 400;
   line-height: 1.65;
   color: #ffffff;
@@ -646,18 +646,47 @@ body.theme-slate footer {
   margin-top: 1rem;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints & Fluid Mobile Engine */
 @media (max-width: 991px) {
   html {
     font-size: 15px;
   }
   
-  .hero h1 {
-    font-size: 4rem;
+  .desktop-br {
+    display: none;
   }
   
-  .blog-header h1, .post-hero h1.post-title {
-    font-size: 3rem;
+  .hero {
+    min-height: 100vh;
+    height: auto;
+    padding: calc(var(--header-height) + 2rem) 0 3rem;
+  }
+  
+  .hero-content {
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 3rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.75rem, 8vw, 4.5rem);
+  }
+
+  .hero h3 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+  
+  .hero p {
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    line-height: 1.6;
+    margin-top: auto;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  .blog-header-minimal h1, .post-header-minimal h1.post-title-minimal {
+    font-size: 2.75rem;
   }
   
   .essay-title {
@@ -677,23 +706,39 @@ body.theme-slate footer {
 
 @media (max-width: 767px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
   
   .hero {
-    min-height: 700px;
+    min-height: 100vh;
+    height: auto;
+    padding: calc(var(--header-height) + 1.5rem) 0 2.5rem;
+  }
+
+  .hero-content {
+    gap: 2rem;
   }
   
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   
-  .blog-header, .post-hero {
-    min-height: 45vh;
+  .hero h3 {
+    font-size: 1.3rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.55;
   }
   
-  .blog-header h1, .post-hero h1.post-title {
-    font-size: 2.4rem;
+  .blog-header-minimal, .post-header-minimal {
+    padding: calc(var(--header-height) + 25px) 0 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-header-minimal h1, .post-header-minimal h1.post-title-minimal {
+    font-size: 2.2rem;
   }
   
   .post-body-container {
@@ -704,5 +749,34 @@ body.theme-slate footer {
     margin: 3rem 1rem 1rem 1rem;
     padding: 3rem 1.5rem 2rem;
     border-radius: 1.25rem;
+  }
+}
+
+/* Mobile Landscape Orientation Safeguard (Prevents Vertical Text Overflow) */
+@media (max-height: 550px) and (orientation: landscape) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding: calc(var(--header-height) + 1rem) 0 2rem;
+  }
+
+  .hero-content {
+    min-height: auto;
+    gap: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+  }
+
+  .hero h3 {
+    font-size: 1.2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 1rem;
   }
 }
