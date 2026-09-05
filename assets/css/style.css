@@ -159,7 +159,7 @@ nav.glass-nav a {
   display: flex;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)), url('/images/hero-bg.jpg');
-  background-position: center 30%;
+  background-position: 85% center; /* Anchors monk & mountain vista gracefully on desktop */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -312,7 +312,7 @@ nav.glass-nav a {
 }
 
 .blog-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/images/Kailash.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/images/Beachh Header.jpg');
   background-position: center 40%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -655,16 +655,23 @@ body.theme-slate footer {
   }
   
   .hero {
-    min-height: 100vh;
+    min-height: 75vh;
     height: auto;
     padding: calc(var(--header-height) + 2rem) 0 3rem;
+    background-position: 80% 25%;
+  }
+  
+  .blog-header, .post-hero {
+    min-height: 38vh;
+    padding: calc(var(--header-height) + 25px) 0 2.5rem;
+    margin-bottom: 3rem;
   }
   
   .hero-content {
     min-height: auto;
     padding-top: 0;
     padding-bottom: 0;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   
   .hero h1 {
@@ -708,13 +715,25 @@ body.theme-slate footer {
   }
   
   .hero {
-    min-height: 100vh;
+    min-height: clamp(480px, 70vh, 620px);
     height: auto;
-    padding: calc(var(--header-height) + 1.5rem) 0 2.5rem;
+    padding: calc(var(--header-height) + 1.25rem) 0 2.5rem;
+    background-position: 78% 20%;
+    background-size: cover;
+  }
+
+  .blog-header, .post-hero {
+    min-height: 280px;
+    padding: calc(var(--header-height) + 20px) 0 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-header h1, .post-hero h1.post-title {
+    font-size: 2.4rem;
   }
 
   .hero-content {
-    gap: 2rem;
+    gap: 1.75rem;
   }
   
   .hero h1 {

@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ if eq site.Params.headerStyle "image" }}
 <header class="post-hero">
-  <div class="post-hero-bg" {{ if .Params.image }}style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('{{ .Params.image | relURL }}');"{{ else }}style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/Monk Meditating.jpg');"{{ end }}></div>
+  <div class="post-hero-bg" {{ if .Params.image }}style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('{{ .Params.image | relURL }}');"{{ else }}style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/Monk Beach 2.jpg');"{{ end }}></div>
   <div class="container post-hero-inner">
     <div class="post-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
