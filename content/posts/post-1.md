@@ -2,7 +2,7 @@
 title: "Post 1 Headline"
 date: 2024-05-19T12:00:00Z
 description: "Welcome to Anveshaka. An invitation to step out of the constant rush."
-image: "/images/paddleboard-card.jpg"
+image: "/images/beach-banner.jpg"
 tags: ["Introduction"]
 draft: false
 ---

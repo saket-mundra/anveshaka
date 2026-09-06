@@ -2,7 +2,7 @@
 title: "Post 3 Headline"
 date: 2024-05-21T12:00:00Z
 description: "Footprints of travels across eighteen countries, and finding the silent threads that bind us."
-image: "/images/monk-walking-trees-card.jpg"
+image: "/images/beach-banner.jpg"
 tags: ["Travel", "Observation"]
 draft: false
 ---

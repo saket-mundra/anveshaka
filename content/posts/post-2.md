@@ -2,7 +2,7 @@
 title: "Post 2 Headline"
 date: 2024-05-20T12:00:00Z
 description: "In the silence, truth seeks us. Understanding presence in a busy world."
-image: "/images/water-card.jpg"
+image: "/images/monk-meditating-banner.jpg"
 tags: ["Silence", "Presence"]
 draft: false
 ---
