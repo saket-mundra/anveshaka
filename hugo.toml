@@ -21,6 +21,6 @@ paginate = 6 # Dynamic pagination: displays 6 posts per page with automatic 1, 2
     url = "/"
     weight = 1
   [[menu.main]]
-    name = "Blog"
+    name = "Musings"
     url = "/posts/"
     weight = 2
