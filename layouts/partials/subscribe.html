@@ -2,29 +2,41 @@
   <div class="subscribe-inner">
     <h3>Subscribe to Musings</h3>
     <p>Receive quiet reflections and new essays directly in your inbox.</p>
-    <form class="subscribe-form" action="https://zgp4-zgp4.maillist-manage.in/weboptin.zc" method="POST" target="_blank" onsubmit="if(this.querySelector('#zc_spmSubmit')){this.querySelector('#zc_spmSubmit').remove();}">
-      <input type="email" name="CONTACT_EMAIL" placeholder="Your email address" required aria-label="Email address for subscription">
-      <button type="submit" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin">Subscribe</button>
-      
-      <!-- Hidden Zoho Campaigns parameters -->
-      <input type="hidden" name="submitType" value="optinCustomView">
-      <input type="hidden" name="emailReportId" value="">
-      <input type="hidden" name="formType" value="QuickForm">
-      <input type="hidden" name="zx" value="1dfbc2e3fc">
-      <input type="hidden" name="zcvers" value="2.0">
-      <input type="hidden" name="oldListIds" value="">
-      <input type="hidden" name="mode" value="OptinCreateView">
-      <input type="hidden" name="zcld" value="154c2622f4f3f324">
-      <input type="hidden" name="zctd" value="">
-      <input type="hidden" name="zc_Url" value="zgp4-zgp4.maillist-manage.in">
-      <input type="hidden" name="new_optin_response_in" value="0">
-      <input type="hidden" name="duplicate_optin_response_in" value="0">
-      <input type="hidden" name="zc_trackCode" value="ZCFORMVIEW">
-      <input type="hidden" name="zc_formIx" value="3z4e39154cea1da35c689d320ac1e2349bf373d4b2f6c47e8bb4bc76d350f27f51">
-      <input type="hidden" name="viewFrom" value="URL_ACTION">
-      <input type="hidden" name="scriptless" value="yes">
-      <input type="hidden" id="zc_spmSubmit" name="zc_spmSubmit" value="ZCSPMSUBMIT">
-    </form>
+    
+    <iframe name="zoho_iframe" id="zoho_iframe" style="display:none;" onload="if(window.zohoSubmitting){document.getElementById('subscribe-form-container').style.display='none';document.getElementById('subscribe-success-container').style.display='block';}"></iframe>
+    
+    <div id="subscribe-form-container">
+      <form class="subscribe-form" action="https://zgp4-zgp4.maillist-manage.in/weboptin.zc" method="POST" target="zoho_iframe" onsubmit="window.zohoSubmitting=true; if(this.querySelector('#zc_spmSubmit')){this.querySelector('#zc_spmSubmit').remove();}">
+        <input type="email" name="CONTACT_EMAIL" placeholder="Your email address" required aria-label="Email address for subscription">
+        <button type="submit" name="SIGNUP_SUBMIT_BUTTON" id="zcWebOptin">Subscribe</button>
+        
+        <!-- Hidden Zoho Campaigns parameters -->
+        <input type="hidden" name="submitType" value="optinCustomView">
+        <input type="hidden" name="emailReportId" value="">
+        <input type="hidden" name="formType" value="QuickForm">
+        <input type="hidden" name="zx" value="1dfbc2e3fc">
+        <input type="hidden" name="zcvers" value="2.0">
+        <input type="hidden" name="oldListIds" value="">
+        <input type="hidden" name="mode" value="OptinCreateView">
+        <input type="hidden" name="zcld" value="154c2622f4f3f324">
+        <input type="hidden" name="zctd" value="">
+        <input type="hidden" name="zc_Url" value="zgp4-zgp4.maillist-manage.in">
+        <input type="hidden" name="new_optin_response_in" value="0">
+        <input type="hidden" name="duplicate_optin_response_in" value="0">
+        <input type="hidden" name="zc_trackCode" value="ZCFORMVIEW">
+        <input type="hidden" name="zc_formIx" value="3z4e39154cea1da35c689d320ac1e2349bf373d4b2f6c47e8bb4bc76d350f27f51">
+        <input type="hidden" name="viewFrom" value="URL_ACTION">
+        <input type="hidden" name="scriptless" value="yes">
+        <input type="hidden" id="zc_spmSubmit" name="zc_spmSubmit" value="ZCSPMSUBMIT">
+      </form>
+    </div>
+
+    <div id="subscribe-success-container" style="display:none;" class="subscribe-success-msg">
+      <div class="success-icon-badge">✓</div>
+      <h4>Thank you for subscribing!</h4>
+      <p>A confirmation link has been sent to your email address. Please click the button inside to complete your subscription.</p>
+    </div>
+
     <div class="subscribe-rss">
       <span>Or follow via RSS:</span>
       <a href="{{ "index.xml" | relURL }}" target="_blank" class="rss-link">
