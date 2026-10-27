@@ -316,6 +316,15 @@ nav.glass-nav a {
   background-position: center 55%;
   background-size: cover;
   background-repeat: no-repeat;
+  /* Header rhythm added 2026-10-26: the Musings header is a two-line lockup - a big line
+     with a smaller line directly under it - exactly like the home hero's "The one who
+     seeks" / "Anveshaka", dropped a little lower down the banner with quiet space left
+     beneath it. The banner stays shorter than the home hero's so the first essay is still
+     close to the top. Only .blog-header is touched; single-post heroes are unchanged. */
+  min-height: clamp(520px, 48vw, 700px);
+  align-items: stretch;
+  padding-top: calc(var(--header-height) + clamp(6rem, 11vw, 10.5rem));
+  padding-bottom: 4rem;
 }
 
 .post-hero-bg {
@@ -339,6 +348,12 @@ nav.glass-nav a {
   padding: 0 2rem;
 }
 
+.blog-header-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .blog-header h1, .post-hero h1.post-title {
   font-size: 3.75rem;
   color: #ffffff;
@@ -348,13 +363,43 @@ nav.glass-nav a {
   margin-bottom: 0.75rem;
 }
 
+/* Musings header - desktop. Every value below is the value the home hero uses at the same
+   width (title 6rem/96px, second line 2.2rem/35px, gap 10px), so the two pages share one
+   type scale. Only the banner is shorter, so the first essay stays reachable. */
+.blog-header h1 {
+  font-size: 6rem;            /* = home .hero h1 */
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: normal;
+  margin: 0 0 10px;           /* = home .hero h1 margin-bottom */
+}
+
+.blog-header .blog-tagline {
+  font-size: 2.2rem;          /* = home .hero h3 ("Anveshaka"): 35 px */
+  font-family: var(--font-headings);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* A one-word title (Musings) can carry the home hero's full 96 px. A phrase line
+   ("Seek and you shall find") gets a display size that still fits on one line at every
+   width, so nothing wraps or overflows. The template picks which one to use from the
+   length of musingsTitle - no CSS edit needed to change wording. */
+.blog-header h1.head-phrase {
+  font-size: clamp(2.75rem, 5.2vw, 4.5rem);
+}
+
+/* Only rendered when a third line is configured in hugo.toml (musingsLead). */
 .blog-header p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;          /* = home .hero p */
   font-family: var(--font-headings);
   font-style: normal;
-  max-width: 650px;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
+  font-weight: 400;
+  max-width: 850px;           /* = home .hero p */
+  color: #ffffff;
+  line-height: 1.65;
+  margin: 1.5rem 0 0;
 }
 
 .post-meta {
@@ -805,6 +850,31 @@ body.theme-slate footer {
   .blog-header {
     background-position: center 53%;
   }
+
+  /* Tablet / large-phone band: identical clamp() values to the home hero, so the Musings
+     lockup scales exactly the way the home hero's lockup does. */
+  .blog-header {
+    padding-top: calc(var(--header-height) + min(14vw, 14vh));
+  }
+
+  .blog-header h1 {
+    font-size: clamp(2.75rem, 8vw, 4.5rem);   /* = home .hero h1 at this width */
+  }
+
+  .blog-header h1.head-phrase {
+    font-size: clamp(2.25rem, 5vw, 3.4rem);
+  }
+
+  .blog-header .blog-tagline {
+    font-size: clamp(1.4rem, 4vw, 2rem);      /* = home .hero h3 at this width */
+  }
+
+  .blog-header p {
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem); /* = home .hero p at this width */
+    line-height: 1.6;
+    max-width: 100%;
+    margin-top: 2.5rem;
+  }
   
   .hero-content {
     min-height: auto;
@@ -875,6 +945,32 @@ body.theme-slate footer {
     font-size: 2.4rem;
   }
 
+  /* Phone band: same sizes the home hero uses at this width (h1 2.5rem, h3 1.3rem,
+     closing line 1.05rem). The drop from the top is tied to screen height so a tall
+     phone and a short phone both land at roughly the same visual spot. */
+  .blog-header {
+    padding-top: calc(var(--header-height) + clamp(4rem, 13vh, 7rem));
+  }
+
+  .blog-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .blog-header .blog-tagline {
+    font-size: 1.3rem;   /* = home .hero h3 at this width */
+  }
+
+  .blog-header h1.head-phrase {
+    font-size: 2rem;
+  }
+
+  .blog-header p {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    margin-top: 1.75rem;
+  }
+
   .hero-content {
     gap: 1.75rem;
   }
@@ -927,6 +1023,32 @@ body.theme-slate footer {
 
   .blog-header {
     background-position: center 52%;
+  }
+
+  /* Short landscape screens (phone on its side): the home hero drops to 2.2rem / 1.2rem /
+     0.95rem. The Musings header does exactly the same at this size, including on wide
+     landscape phones where the tablet rules do not apply. */
+  .blog-header {
+    padding-top: calc(var(--header-height) + 3rem);
+  }
+
+  .blog-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 4px;   /* = home .hero h1 at this height */
+  }
+
+  .blog-header .blog-tagline {
+    font-size: 1.2rem;    /* = home .hero h3 at this height */
+  }
+
+  .blog-header h1.head-phrase {
+    font-size: 1.75rem;
+  }
+
+  .blog-header p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 1rem;
   }
 
   .hero-content {

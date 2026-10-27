@@ -1,17 +1,24 @@
 {{ define "main" }}
+{{/* Musings header wording lives in hugo.toml [params]: musingsTitle (big line),
+    musingsTagline (smaller line under it), musingsLead (optional third line).
+    A short title gets the home hero's full display size; a phrase-sized title gets the
+    scale that keeps it on one line - see .head-phrase in assets/css/style.css. */}}
+{{ $musingsTitle := site.Params.musingsTitle | default "Musings" }}
 {{ if eq site.Params.headerStyle "image" }}
 <header class="blog-header">
   <div class="container blog-header-inner">
-    <h1>Musings</h1>
-    <p>{{ site.Params.Description }}</p>
+    <h1 class="{{ if le (len $musingsTitle) 10 }}head-single{{ else }}head-phrase{{ end }}">{{ $musingsTitle }}</h1>
+    {{ with site.Params.musingsTagline }}<h3 class="blog-tagline">{{ . }}</h3>{{ end }}
+    {{ with site.Params.musingsLead }}<p>{{ . }}</p>{{ end }}
   </div>
 </header>
 {{ else }}
 <!-- Image-Free Minimalist Typographic Header -->
 <header class="blog-header-minimal {{ site.Params.minimalHeaderStyle }}">
   <div class="container">
-    <h1>Musings</h1>
-    <p>{{ site.Params.Description }}</p>
+    <h1 class="{{ if le (len $musingsTitle) 10 }}head-single{{ else }}head-phrase{{ end }}">{{ $musingsTitle }}</h1>
+    {{ with site.Params.musingsTagline }}<h3 class="blog-tagline">{{ . }}</h3>{{ end }}
+    {{ with site.Params.musingsLead }}<p>{{ . }}</p>{{ end }}
   </div>
 </header>
 {{ end }}
