@@ -1,10 +1,10 @@
----
+﻿---
 title: "Post 2 Headline"
 date: 2024-05-20T12:00:00Z
 description: "In the silence, truth seeks us. Understanding presence in a busy world."
 image: "/images/monk-meditating-banner.jpg"
 tags: ["Silence", "Presence"]
-draft: false
+draft: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.

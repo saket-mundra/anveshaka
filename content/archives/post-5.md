@@ -1,10 +1,10 @@
----
+﻿---
 title: "Post 5 Headline"
 date: 2024-05-23T12:00:00Z
 description: "Exploring the mirrors of the financial markets and learning patience through cycles."
 image: "/images/monk-meditating-banner.jpg"
 tags: ["Investing", "Markets"]
-draft: false
+draft: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.

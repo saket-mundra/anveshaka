@@ -1,10 +1,10 @@
----
+﻿---
 title: "Post 3 Headline"
 date: 2024-05-21T12:00:00Z
 description: "Footprints of travels across eighteen countries, and finding the silent threads that bind us."
 image: "/images/beach-banner.jpg"
 tags: ["Travel", "Observation"]
-draft: false
+draft: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.

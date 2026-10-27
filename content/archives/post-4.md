@@ -1,10 +1,10 @@
----
+﻿---
 title: "Post 4 Headline"
 date: 2024-05-22T12:00:00Z
 description: "Looking at the world through an innocent lens once again and the privilege of parenting."
 image: "/images/beach-banner.jpg"
 tags: ["Parenting", "Clarity"]
-draft: false
+draft: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
