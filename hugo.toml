@@ -8,7 +8,7 @@ paginate = 6 # Dynamic pagination: displays 6 posts per page with automatic 1, 2
   description = "Inner seeking, clarity, and quiet craftsmanship."
   # Musings page header. Kept separate from `description` on purpose: `description`
   # is the site-wide SEO/RSS summary, so reusing it for the header would change both.
-  musingsTitle = "Seek and you shall find"          # the big line
+  musingsTitle = "Seek and we shall find"          # the big line
   musingsTagline = "Anveshaka"   # the smaller line under it
   # Optional third line. Set it to show a sentence under the two lines; leave it out
   # (or set it to "") for a two-line header.
