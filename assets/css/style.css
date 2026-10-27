@@ -528,15 +528,22 @@ nav.glass-nav a {
 }
 
 .post-content {
+  /* Width decision 2026-10-26: a capped, centred reading column (54ch, measured at ~72
+     characters a line) was built and measured, then removed - Saket prefers the earlier width,
+     so the text runs the full container: 1,136px on a large screen, as it does live today. */
   width: 100%;
-  max-width: var(--max-width); /* Spans full container width symmetrically */
-  font-size: 1.25rem;
-  line-height: 1.95;
+  /* Type settings copied 2026-10-26 from the home page's .script-paragraph (the "Sitting in my
+     car in Delhi in 2007..." passage), per Saket: same face, 1.125rem size, 1.85 line height,
+     regular weight, same colour. Those rem values follow the site's own screen-size scaling, so
+     the essay lands on 18px on a large screen and 16.875px below 900px - exactly what the home
+     page does, measured live. */
+  font-size: 1.125rem;
+  line-height: 1.85;
   color: var(--text-main);
 }
 
 .post-content p {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .post-content h2, .post-content h3 {
