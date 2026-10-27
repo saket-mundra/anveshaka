@@ -608,6 +608,8 @@ footer {
 
 .subscribe-form input[type="email"] {
   flex: 1;
+  min-width: 0;   /* 2026-10-26: without this the field cannot shrink, so on phones under
+                     ~400 px the row is wider than the screen and the page scrolls sideways */
   padding: 0.85rem 1.25rem;
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.15);
